@@ -1,9 +1,17 @@
-﻿@model RentMe.Models.CarGroup
+﻿@using RentMe.Models
+@model IEnumerable<CarGroup>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Brand</h2>
-<h2>@Model.Model</h2>
+<h2>Our fleet</h2>
 
+<ul>
+    @foreach (var group in Model)
+    {
+        <li>
+            @Html.ActionLink($"{group.Brand} {group.Brand} for {group.DayPrice} a day!", MVC.Cars.Details(group.Id))
+        </li>
+    }
+</ul>

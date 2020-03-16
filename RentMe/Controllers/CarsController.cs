@@ -9,15 +9,25 @@ namespace RentMe.Controllers
 {
     public partial class CarsController : Controller
     {
+        private readonly ApplicationDbContext context = new ApplicationDbContext();
+
+        protected override void Dispose(bool disposing)
+        {
+            context.Dispose();
+            base.Dispose(disposing);
+        }
+
         // GET: Cars
         public virtual ActionResult Index()
         {
-            var car = new CarGroup()
-            {
-                Brand = "Honda",
-                Model = "Jazz"
-            };
-            return View(car);
+            var groups = context.CarGroups.AsEnumerable();
+
+            return View(groups);
+        }
+
+        public virtual ActionResult Details(int id)
+        {
+            return Content(id.ToString());
         }
     }
 }
