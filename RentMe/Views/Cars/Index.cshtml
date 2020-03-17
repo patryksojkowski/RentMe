@@ -11,7 +11,7 @@
     @foreach (var group in Model)
     {
         <li>
-            @Html.ActionLink($"{group.Brand} {group.Brand} for {group.DayPrice} a day!", MVC.Cars.Details(group.Id))
+            @Html.ActionLink($"{group.Brand} {group.Model} for {group.DayPrice} a day!", MVC.Cars.Details(group.Id))
         </li>
     }
 </ul>

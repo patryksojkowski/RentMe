@@ -1,0 +1,16 @@
+﻿@using RentMe.ViewModels
+@model SearchResultsViewModel
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SearchResult</h2>
+<ul>
+    @foreach (var group in Model.CarGroups)
+    {
+        <li>
+            @Html.ActionLink($"{group.Brand} {group.Model} for {group.DayPrice} a day!", MVC.Rentals.RentDetails(Model.PickupDate, Model.ReturnDate, group.Id))
+        </li>
+    }
+</ul>

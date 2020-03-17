@@ -21,9 +21,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Fleet", MVC.Cars.Index())</li>
+                    <li>@Html.ActionLink("Contact", MVC.Home.Contact())</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -32,8 +31,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="main-footer">
+            <p>&copy; @DateTime.Now.Year - RentMe - Car rentals</p>
         </footer>
     </div>
 

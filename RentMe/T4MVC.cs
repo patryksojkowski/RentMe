@@ -31,6 +31,7 @@ public static partial class MVC
     public static RentMe.Controllers.CarsController Cars = new RentMe.Controllers.T4MVC_CarsController();
     public static RentMe.Controllers.HomeController Home = new RentMe.Controllers.T4MVC_HomeController();
     public static RentMe.Controllers.ManageController Manage = new RentMe.Controllers.T4MVC_ManageController();
+    public static RentMe.Controllers.RentalsController Rentals = new RentMe.Controllers.T4MVC_RentalsController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -84,6 +85,8 @@ namespace Links
         public static readonly string jquery_3_3_1_slim_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery-3.3.1.slim.min.js") ? Url("jquery-3.3.1.slim.min.js") : Url("jquery-3.3.1.slim.js");
         public static readonly string jquery_3_3_1_slim_min_js = Url("jquery-3.3.1.slim.min.js");
         public static readonly string jquery_3_3_1_slim_min_map = Url("jquery-3.3.1.slim.min.map");
+        public static readonly string jquery_ui_1_12_1_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery-ui-1.12.1.min.js") ? Url("jquery-ui-1.12.1.min.js") : Url("jquery-ui-1.12.1.js");
+        public static readonly string jquery_ui_1_12_1_min_js = Url("jquery-ui-1.12.1.min.js");
         public static readonly string jquery_validate_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery.validate-vsdoc.min.js") ? Url("jquery.validate-vsdoc.min.js") : Url("jquery.validate-vsdoc.js");
         public static readonly string jquery_validate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery.validate.min.js") ? Url("jquery.validate.min.js") : Url("jquery.validate.js");
         public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
@@ -107,6 +110,68 @@ namespace Links
         public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
         public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
         public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class themes {
+            public const string UrlPath = "~/Content/themes";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class @base {
+                public const string UrlPath = "~/Content/themes/base";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+                public static readonly string accordion_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/accordion.min.css") ? Url("accordion.min.css") : Url("accordion.css");
+                public static readonly string all_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/all.min.css") ? Url("all.min.css") : Url("all.css");
+                public static readonly string autocomplete_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/autocomplete.min.css") ? Url("autocomplete.min.css") : Url("autocomplete.css");
+                public static readonly string base_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/base.min.css") ? Url("base.min.css") : Url("base.css");
+                public static readonly string button_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/button.min.css") ? Url("button.min.css") : Url("button.css");
+                public static readonly string core_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/core.min.css") ? Url("core.min.css") : Url("core.css");
+                public static readonly string datepicker_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/datepicker.min.css") ? Url("datepicker.min.css") : Url("datepicker.css");
+                public static readonly string dialog_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/dialog.min.css") ? Url("dialog.min.css") : Url("dialog.css");
+                public static readonly string draggable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/draggable.min.css") ? Url("draggable.min.css") : Url("draggable.css");
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class images {
+                    public const string UrlPath = "~/Content/themes/base/images";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(UrlPath); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(UrlPath + "/" + fileName); }
+                    public static readonly string ui_bg_flat_0_aaaaaa_40x100_png = Url("ui-bg_flat_0_aaaaaa_40x100.png");
+                    public static readonly string ui_bg_flat_75_ffffff_40x100_png = Url("ui-bg_flat_75_ffffff_40x100.png");
+                    public static readonly string ui_bg_glass_55_fbf9ee_1x400_png = Url("ui-bg_glass_55_fbf9ee_1x400.png");
+                    public static readonly string ui_bg_glass_65_ffffff_1x400_png = Url("ui-bg_glass_65_ffffff_1x400.png");
+                    public static readonly string ui_bg_glass_75_dadada_1x400_png = Url("ui-bg_glass_75_dadada_1x400.png");
+                    public static readonly string ui_bg_glass_75_e6e6e6_1x400_png = Url("ui-bg_glass_75_e6e6e6_1x400.png");
+                    public static readonly string ui_bg_glass_95_fef1ec_1x400_png = Url("ui-bg_glass_95_fef1ec_1x400.png");
+                    public static readonly string ui_bg_highlight_soft_75_cccccc_1x100_png = Url("ui-bg_highlight-soft_75_cccccc_1x100.png");
+                    public static readonly string ui_icons_222222_256x240_png = Url("ui-icons_222222_256x240.png");
+                    public static readonly string ui_icons_2e83ff_256x240_png = Url("ui-icons_2e83ff_256x240.png");
+                    public static readonly string ui_icons_444444_256x240_png = Url("ui-icons_444444_256x240.png");
+                    public static readonly string ui_icons_454545_256x240_png = Url("ui-icons_454545_256x240.png");
+                    public static readonly string ui_icons_555555_256x240_png = Url("ui-icons_555555_256x240.png");
+                    public static readonly string ui_icons_777620_256x240_png = Url("ui-icons_777620_256x240.png");
+                    public static readonly string ui_icons_777777_256x240_png = Url("ui-icons_777777_256x240.png");
+                    public static readonly string ui_icons_888888_256x240_png = Url("ui-icons_888888_256x240.png");
+                    public static readonly string ui_icons_cc0000_256x240_png = Url("ui-icons_cc0000_256x240.png");
+                    public static readonly string ui_icons_cd0a0a_256x240_png = Url("ui-icons_cd0a0a_256x240.png");
+                    public static readonly string ui_icons_ffffff_256x240_png = Url("ui-icons_ffffff_256x240.png");
+                }
+            
+                public static readonly string jquery_ui_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/jquery-ui.min.css") ? Url("jquery-ui.min.css") : Url("jquery-ui.css");
+                public static readonly string jquery_ui_min_css = Url("jquery-ui.min.css");
+                public static readonly string menu_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/menu.min.css") ? Url("menu.min.css") : Url("menu.css");
+                public static readonly string progressbar_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/progressbar.min.css") ? Url("progressbar.min.css") : Url("progressbar.css");
+                public static readonly string resizable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/resizable.min.css") ? Url("resizable.min.css") : Url("resizable.css");
+                public static readonly string selectable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/selectable.min.css") ? Url("selectable.min.css") : Url("selectable.css");
+                public static readonly string selectmenu_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/selectmenu.min.css") ? Url("selectmenu.min.css") : Url("selectmenu.css");
+                public static readonly string slider_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/slider.min.css") ? Url("slider.min.css") : Url("slider.css");
+                public static readonly string sortable_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/sortable.min.css") ? Url("sortable.min.css") : Url("sortable.css");
+                public static readonly string spinner_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/spinner.min.css") ? Url("spinner.min.css") : Url("spinner.css");
+                public static readonly string tabs_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/tabs.min.css") ? Url("tabs.min.css") : Url("tabs.css");
+                public static readonly string theme_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/theme.min.css") ? Url("theme.min.css") : Url("theme.css");
+                public static readonly string tooltip_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(UrlPath + "/tooltip.min.css") ? Url("tooltip.min.css") : Url("tooltip.css");
+            }
+        
+        }
+    
     }
 
     
@@ -124,6 +189,8 @@ namespace Links
                 public static readonly string jquery_3_3_1_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-3.3.1.min.js"); 
                 public static readonly string jquery_3_3_1_slim_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-3.3.1.slim.js"); 
                 public static readonly string jquery_3_3_1_slim_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-3.3.1.slim.min.js"); 
+                public static readonly string jquery_ui_1_12_1_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-ui-1.12.1.js"); 
+                public static readonly string jquery_ui_1_12_1_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery-ui-1.12.1.min.js"); 
                 public static readonly string jquery_validate_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery.validate.js"); 
                 public static readonly string jquery_validate_min_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery.validate.min.js"); 
                 public static readonly string jquery_validate_unobtrusive_js = T4MVCHelpers.ProcessAssetPath("~/Scripts/jquery.validate.unobtrusive.js"); 
@@ -133,6 +200,46 @@ namespace Links
         }
         public static partial class Content 
         {
+            public static partial class themes 
+            {
+                public static partial class @base 
+                {
+                    public static partial class images 
+                    {
+                        public static class Assets
+                        {
+                        }
+                    }
+                    public static class Assets
+                    {
+                        public static readonly string accordion_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/accordion.css");
+                        public static readonly string all_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/all.css");
+                        public static readonly string autocomplete_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/autocomplete.css");
+                        public static readonly string base_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/base.css");
+                        public static readonly string button_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/button.css");
+                        public static readonly string core_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/core.css");
+                        public static readonly string datepicker_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/datepicker.css");
+                        public static readonly string dialog_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/dialog.css");
+                        public static readonly string draggable_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/draggable.css");
+                        public static readonly string jquery_ui_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/jquery-ui.css");
+                        public static readonly string jquery_ui_min_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/jquery-ui.min.css");
+                        public static readonly string menu_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/menu.css");
+                        public static readonly string progressbar_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/progressbar.css");
+                        public static readonly string resizable_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/resizable.css");
+                        public static readonly string selectable_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/selectable.css");
+                        public static readonly string selectmenu_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/selectmenu.css");
+                        public static readonly string slider_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/slider.css");
+                        public static readonly string sortable_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/sortable.css");
+                        public static readonly string spinner_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/spinner.css");
+                        public static readonly string tabs_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/tabs.css");
+                        public static readonly string theme_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/theme.css");
+                        public static readonly string tooltip_css = T4MVCHelpers.ProcessAssetPath("~/Content/themes/base/tooltip.css");
+                    }
+                }
+                public static class Assets
+                {
+                }
+            }
             public static class Assets
             {
                 public static readonly string bootstrap_sandstone_css = T4MVCHelpers.ProcessAssetPath("~/Content/bootstrap-sandstone.css");

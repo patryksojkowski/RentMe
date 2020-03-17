@@ -25,13 +25,13 @@ using System.Web.Routing;
 using T4MVC;
 namespace RentMe.Controllers
 {
-    public partial class CarsController
+    public partial class RentalsController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public CarsController() { }
+        public RentalsController() { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected CarsController(Dummy d) { }
+        protected RentalsController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected RedirectToRouteResult RedirectToAction(ActionResult result)
@@ -61,19 +61,25 @@ namespace RentMe.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult Details()
+        public virtual System.Web.Mvc.ActionResult SearchResult()
         {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Details);
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SearchResult);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult RentDetails()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RentDetails);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public CarsController Actions { get { return MVC.Cars; } }
+        public RentalsController Actions { get { return MVC.Rentals; } }
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Area = "";
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "Cars";
+        public readonly string Name = "Rentals";
         [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "Cars";
+        public const string NameConst = "Rentals";
         [GeneratedCode("T4MVC", "2.0")]
         static readonly ActionNamesClass s_actions = new ActionNamesClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -81,25 +87,36 @@ namespace RentMe.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
-            public readonly string Index = "Index";
-            public readonly string Details = "Details";
+            public readonly string SearchResult = "SearchResult";
+            public readonly string RentDetails = "RentDetails";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
-            public const string Index = "Index";
-            public const string Details = "Details";
+            public const string SearchResult = "SearchResult";
+            public const string RentDetails = "RentDetails";
         }
 
 
-        static readonly ActionParamsClass_Details s_params_Details = new ActionParamsClass_Details();
+        static readonly ActionParamsClass_SearchResult s_params_SearchResult = new ActionParamsClass_SearchResult();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Details DetailsParams { get { return s_params_Details; } }
+        public ActionParamsClass_SearchResult SearchResultParams { get { return s_params_SearchResult; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Details
+        public class ActionParamsClass_SearchResult
         {
-            public readonly string id = "id";
+            public readonly string pickupDate = "pickupDate";
+            public readonly string returnDate = "returnDate";
+        }
+        static readonly ActionParamsClass_RentDetails s_params_RentDetails = new ActionParamsClass_RentDetails();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_RentDetails RentDetailsParams { get { return s_params_RentDetails; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_RentDetails
+        {
+            public readonly string pickupDate = "pickupDate";
+            public readonly string returnDate = "returnDate";
+            public readonly string carGroupId = "carGroupId";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -111,39 +128,43 @@ namespace RentMe.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string Details = "Details";
-                public readonly string Index = "Index";
+                public readonly string RentDetails = "RentDetails";
+                public readonly string SearchResult = "SearchResult";
             }
-            public readonly string Details = "~/Views/Cars/Details.cshtml";
-            public readonly string Index = "~/Views/Cars/Index.cshtml";
+            public readonly string RentDetails = "~/Views/Rentals/RentDetails.cshtml";
+            public readonly string SearchResult = "~/Views/Rentals/SearchResult.cshtml";
         }
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_CarsController : RentMe.Controllers.CarsController
+    public partial class T4MVC_RentalsController : RentMe.Controllers.RentalsController
     {
-        public T4MVC_CarsController() : base(Dummy.Instance) { }
+        public T4MVC_RentalsController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void SearchResultOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime pickupDate, System.DateTime returnDate);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Index()
+        public override System.Web.Mvc.ActionResult SearchResult(System.DateTime pickupDate, System.DateTime returnDate)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
-            IndexOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SearchResult);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pickupDate", pickupDate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "returnDate", returnDate);
+            SearchResultOverride(callInfo, pickupDate, returnDate);
             return callInfo;
         }
 
         [NonAction]
-        partial void DetailsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int id);
+        partial void RentDetailsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime pickupDate, System.DateTime returnDate, int carGroupId);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Details(int id)
+        public override System.Web.Mvc.ActionResult RentDetails(System.DateTime pickupDate, System.DateTime returnDate, int carGroupId)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Details);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
-            DetailsOverride(callInfo, id);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.RentDetails);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pickupDate", pickupDate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "returnDate", returnDate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "carGroupId", carGroupId);
+            RentDetailsOverride(callInfo, pickupDate, returnDate, carGroupId);
             return callInfo;
         }
 
