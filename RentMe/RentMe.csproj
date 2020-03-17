@@ -338,6 +338,8 @@
     <Content Include="Views\Cars\Details.cshtml" />
     <Content Include="Views\Rentals\SearchResult.cshtml" />
     <Content Include="Views\Rentals\RentDetails.cshtml" />
+    <Content Include="Views\Rentals\Successful.cshtml" />
+    <Content Include="Views\Rentals\UserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

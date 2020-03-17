@@ -8,5 +8,6 @@
     <h2>@Model.CarGroup.Brand @Model.CarGroup.Model</h2>
     <h2>@Model.PickupDate</h2>
     <h2>@Model.ReturnDate</h2>
-    <button class="btn btn-primary">Confirm</button>
+
+    @Html.ActionLink("Proceed", MVC.Rentals.UserDetails(Model.PickupDate, Model.ReturnDate, Model.CarGroup.Id), new { @class = "btn btn-primary"})
 

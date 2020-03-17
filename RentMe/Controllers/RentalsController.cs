@@ -61,5 +61,41 @@ namespace RentMe.Controllers
             };
             return View(MVC.Rentals.Views.RentDetails, viewModel);
         }
+
+        public ActionResult UserDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
+        {
+            return View();
+        }
+
+        public virtual ActionResult New(DateTime pickupDate, DateTime returnDate, int carGroupId)
+        {
+            var carsFromGroup = context.Cars.Where(c => c.CarGroupId == carGroupId);
+
+            var rentalsFromGroup = context.Rentals.Where(r => carsFromGroup.Select(c => c.Id).Contains(r.CarId));
+
+            var availableCars = carsFromGroup;
+
+            foreach (var rental in rentalsFromGroup)
+            {
+                if (rental.PickupDate <= returnDate && pickupDate <= rental.ReturnDate)
+                {
+                    availableCars = availableCars.Where(c => c.Id != rental.CarId);
+                }
+            }
+
+            var car = availableCars.First();
+
+            var newRental = new Rental()
+            {
+                Car = car,
+                PickupDate = pickupDate,
+                ReturnDate = returnDate
+            };
+
+            context.Rentals.Add(newRental);
+            context.SaveChanges();
+
+            return View(MVC.Rentals.Views.Successful);
+        }
     }
 }
