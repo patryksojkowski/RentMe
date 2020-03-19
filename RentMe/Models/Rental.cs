@@ -12,6 +12,9 @@ namespace RentMe.Models
         public Car Car { get; set; }
         public int CarId { get; set; }
 
+        public Client Client { get; set; }
+        public int ClientId { get; set; }
+
         public DateTime PickupDate { get; set; }
         public DateTime ReturnDate { get; set; }
     }

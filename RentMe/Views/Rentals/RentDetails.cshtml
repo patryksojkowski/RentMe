@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h2>@Model.CarGroup.Brand @Model.CarGroup.Model</h2>
+    <h2>@Model.CarGroupId</h2>
     <h2>@Model.PickupDate</h2>
     <h2>@Model.ReturnDate</h2>
 
-    @Html.ActionLink("Proceed", MVC.Rentals.UserDetails(Model.PickupDate, Model.ReturnDate, Model.CarGroup.Id), new { @class = "btn btn-primary"})
+    @Html.ActionLink("Proceed", MVC.Rentals.ClientDetails(Model.PickupDate, Model.ReturnDate, Model.CarGroupId), new { @class = "btn btn-primary"})
 

@@ -204,6 +204,14 @@
     <Compile Include="Migrations\202003161526533_BrandAndModelRequiredInCarGroup.Designer.cs">
       <DependentUpon>202003161526533_BrandAndModelRequiredInCarGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003171751037_AddClientsTable.cs" />
+    <Compile Include="Migrations\202003171751037_AddClientsTable.Designer.cs">
+      <DependentUpon>202003171751037_AddClientsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003171754048_AddClientToRental.cs" />
+    <Compile Include="Migrations\202003171754048_AddClientToRental.Designer.cs">
+      <DependentUpon>202003171754048_AddClientToRental.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
@@ -211,6 +219,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rental.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentalsController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
@@ -224,6 +233,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\RentClientDetailsViewModel.cs" />
     <Compile Include="ViewModels\RentDetailsViewModel.cs" />
     <Compile Include="ViewModels\SearchResultsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
@@ -339,7 +349,7 @@
     <Content Include="Views\Rentals\SearchResult.cshtml" />
     <Content Include="Views\Rentals\RentDetails.cshtml" />
     <Content Include="Views\Rentals\Successful.cshtml" />
-    <Content Include="Views\Rentals\UserDetails.cshtml" />
+    <Content Include="Views\Rentals\ClientDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -369,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003161526533_BrandAndModelRequiredInCarGroup.resx">
       <DependentUpon>202003161526533_BrandAndModelRequiredInCarGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171751037_AddClientsTable.resx">
+      <DependentUpon>202003171751037_AddClientsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171754048_AddClientToRental.resx">
+      <DependentUpon>202003171754048_AddClientToRental.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

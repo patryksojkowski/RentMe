@@ -1,0 +1,35 @@
+﻿@model RentMe.ViewModels.RentClientDetailsViewModel
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserDetails</h2>
+
+@using (Html.BeginForm(MVC.Rentals.New(), FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Client.Name)
+        @Html.TextBoxFor(vm => vm.Client.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Client.LastName)
+        @Html.TextBoxFor(vm => vm.Client.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Client.CreditCard)
+        @Html.TextBoxFor(vm => vm.Client.CreditCard, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Client.Email)
+        @Html.TextBoxFor(vm => vm.Client.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(vm => vm.Client.PhoneNumber)
+        @Html.TextBoxFor(vm => vm.Client.PhoneNumber, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(vm => vm.RentDetailsViewModel.PickupDate)
+    @Html.HiddenFor(vm => vm.RentDetailsViewModel.ReturnDate)
+    @Html.HiddenFor(vm => vm.RentDetailsViewModel.CarGroupId)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

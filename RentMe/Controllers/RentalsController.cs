@@ -52,23 +52,39 @@ namespace RentMe.Controllers
 
         public virtual ActionResult RentDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
         {
-            var carGroup = context.CarGroups.First(g => g.Id == carGroupId);
             var viewModel = new RentDetailsViewModel()
             {
                 PickupDate = pickupDate,
                 ReturnDate = returnDate,
-                CarGroup = carGroup,
+                CarGroupId = carGroupId,
             };
             return View(MVC.Rentals.Views.RentDetails, viewModel);
         }
 
-        public ActionResult UserDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
+        public virtual ActionResult ClientDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
         {
-            return View();
+            var client = new Client();
+
+            var viewModel = new RentClientDetailsViewModel()
+            {
+                Client = client,
+                RentDetailsViewModel = new RentDetailsViewModel
+                {
+                    PickupDate = pickupDate,
+                    ReturnDate = returnDate,
+                    CarGroupId = carGroupId
+                },
+            };
+            return View(MVC.Rentals.Views.ClientDetails, viewModel);
         }
 
-        public virtual ActionResult New(DateTime pickupDate, DateTime returnDate, int carGroupId)
+        public virtual ActionResult New(RentClientDetailsViewModel viewModel)
         {
+            var carGroupId = viewModel.RentDetailsViewModel.CarGroupId;
+            var pickupDate = viewModel.RentDetailsViewModel.PickupDate;
+            var returnDate = viewModel.RentDetailsViewModel.ReturnDate;
+            var client = viewModel.Client;
+
             var carsFromGroup = context.Cars.Where(c => c.CarGroupId == carGroupId);
 
             var rentalsFromGroup = context.Rentals.Where(r => carsFromGroup.Select(c => c.Id).Contains(r.CarId));
@@ -89,7 +105,8 @@ namespace RentMe.Controllers
             {
                 Car = car,
                 PickupDate = pickupDate,
-                ReturnDate = returnDate
+                ReturnDate = returnDate,
+                Client = client,
             };
 
             context.Rentals.Add(newRental);

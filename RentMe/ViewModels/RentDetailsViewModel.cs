@@ -10,6 +10,6 @@ namespace RentMe.ViewModels
     {
         public DateTime PickupDate { get; set; }
         public DateTime ReturnDate { get; set; }
-        public CarGroup CarGroup { get; set; }
+        public int CarGroupId { get; set; }
     }
 }
