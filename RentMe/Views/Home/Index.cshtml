@@ -4,6 +4,7 @@
 }
 <br/>
 <br/>
+
 @using(Html.BeginForm(MVC.Rentals.SearchResult()))
 {
     <div class="form-group">
@@ -13,8 +14,8 @@
     <div class="form-group">
         @Html.LabelFor(vm => vm.ReturnDate)
         @Html.EditorFor(vm => vm.ReturnDate)
+        @Html.ValidationMessageFor(vm => vm)
     </div>
-
     <button type="submit" class="btn btn-primary">Search</button>
 }
 

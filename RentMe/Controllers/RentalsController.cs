@@ -19,8 +19,16 @@ namespace RentMe.Controllers
         }
 
         // GET: Rentals
-        public virtual ActionResult SearchResult(DateTime pickupDate, DateTime returnDate)
+        public virtual ActionResult SearchResult(SearchViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(MVC.Home.Views.Index, viewModel);
+            }
+
+            var returnDate = viewModel.ReturnDate;
+            var pickupDate = viewModel.PickupDate;
+
             var cars = context.Cars.Include(car => car.CarGroup).AsEnumerable();
             var rentals = context.Rentals.AsEnumerable();
 
@@ -40,14 +48,14 @@ namespace RentMe.Controllers
             }
             resultCarGroups = resultCarGroups.Distinct().ToList();
 
-            var viewModel = new SearchResultsViewModel()
+            var searchResultsModel = new SearchResultsViewModel()
             {
                 CarGroups = resultCarGroups,
                 PickupDate = pickupDate,
                 ReturnDate = returnDate,
             };
 
-            return View(MVC.Rentals.Views.SearchResult, viewModel);
+            return View(MVC.Rentals.Views.SearchResult, searchResultsModel);
         }
 
         public virtual ActionResult RentDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)

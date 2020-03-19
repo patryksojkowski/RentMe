@@ -121,8 +121,7 @@ namespace RentMe.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_SearchResult
         {
-            public readonly string pickupDate = "pickupDate";
-            public readonly string returnDate = "returnDate";
+            public readonly string viewModel = "viewModel";
         }
         static readonly ActionParamsClass_RentDetails s_params_RentDetails = new ActionParamsClass_RentDetails();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -180,15 +179,14 @@ namespace RentMe.Controllers
         public T4MVC_RentalsController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void SearchResultOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, System.DateTime pickupDate, System.DateTime returnDate);
+        partial void SearchResultOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, RentMe.ViewModels.SearchViewModel viewModel);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult SearchResult(System.DateTime pickupDate, System.DateTime returnDate)
+        public override System.Web.Mvc.ActionResult SearchResult(RentMe.ViewModels.SearchViewModel viewModel)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.SearchResult);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pickupDate", pickupDate);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "returnDate", returnDate);
-            SearchResultOverride(callInfo, pickupDate, returnDate);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "viewModel", viewModel);
+            SearchResultOverride(callInfo, viewModel);
             return callInfo;
         }
 

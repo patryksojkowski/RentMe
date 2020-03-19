@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using RentMe.Models.ValidationAttributes;
 
 namespace RentMe.ViewModels
 {
+    [CheckIfDateReturnIsLaterThanPickup]
     public class SearchViewModel
     {
         [Display(Name = "Pickup Date")]
