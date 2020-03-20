@@ -1,39 +1,37 @@
 ﻿@model RentMe.ViewModels.SearchViewModel
 @{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<br/>
-<br/>
+<br />
+<br />
 
-@using(Html.BeginForm(MVC.Rentals.SearchResult()))
+@using (Html.BeginForm(MVC.Rentals.SearchResult()))
 {
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(vm => vm.PickupDate)
         @Html.EditorFor(vm => vm.PickupDate)
     </div>
+
     <div class="form-group">
         @Html.LabelFor(vm => vm.ReturnDate)
         @Html.EditorFor(vm => vm.ReturnDate)
-        @Html.ValidationMessageFor(vm => vm)
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
+
 }
 
 @section Scripts {
-    @Scripts.Render(Links.Bundles.Scripts.jqueryUI)
-    @Styles.Render(Links.Bundles.Styles.cssjqueryUi)
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[type=datetime]').datepicker(
+        @Scripts.Render(Links.Bundles.Scripts.jqueryDateTimePicker)
+        @Styles.Render(Links.Bundles.Styles.cssjqueryDateTimePicker)
+
+        <script>
+            $('input[type=datetime]').datetimepicker(
                 {
-                    dateFormat: "dd/M/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: "0:+1",
-                    minDate: Number(0),
-                    maxDate: Number(60),
+                    step: 60,
+                    minDate: 0,
+                    defaultTime: '12:00',
                 })
-        })
-    </script>
+        </script>
 }

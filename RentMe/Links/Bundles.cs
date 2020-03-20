@@ -10,6 +10,8 @@ namespace Links
         public static partial class Scripts
         {
             public static readonly string jqueryUI = "~/bundles/jqueryui";
+
+            public static readonly string jqueryDateTimePicker = "~/bundles/jqueryDateTimePicker";
         }
     }
 }

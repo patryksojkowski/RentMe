@@ -10,9 +10,12 @@ namespace RentMe
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
-            
+
             bundles.Add(new ScriptBundle(Links.Bundles.Scripts.jqueryUI).Include(
                         "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new ScriptBundle(Links.Bundles.Scripts.jqueryDateTimePicker).Include(
+                        "~/Scripts/jquery.datetimepicker.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -28,9 +31,12 @@ namespace RentMe
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-sandstone.css",
                       "~/Content/site.css"));
-            
+
             bundles.Add(new StyleBundle(Links.Bundles.Styles.cssjqueryUi).Include(
                       "~/Content/themes/base/jquery-ui.css"));
+
+            bundles.Add(new StyleBundle(Links.Bundles.Styles.cssjqueryDateTimePicker).Include(
+                      "~/Content/jquery.datetimepicker.css"));
         }
     }
 }

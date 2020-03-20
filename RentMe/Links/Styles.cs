@@ -10,6 +10,8 @@ namespace Links
         public static partial class Styles
         {
             public static readonly string cssjqueryUi = "~/Content/cssjqueryUi";
+
+            public static readonly string cssjqueryDateTimePicker = "~/Content/cssjqueryDateTimePicker";
         }
     }
 }
