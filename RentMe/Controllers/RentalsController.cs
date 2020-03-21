@@ -48,12 +48,7 @@ namespace RentMe.Controllers
             }
             resultCarGroups = resultCarGroups.Distinct().ToList();
 
-            var searchResultsModel = new SearchResultsViewModel()
-            {
-                CarGroups = resultCarGroups,
-                PickupDate = pickupDate,
-                ReturnDate = returnDate,
-            };
+            var searchResultsModel = new SearchResultsViewModel(resultCarGroups, pickupDate, returnDate);
 
             return View(MVC.Rentals.Views.SearchResult, searchResultsModel);
         }

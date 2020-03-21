@@ -5,12 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SearchResult</h2>
-<ul>
+<table >
     @foreach (var group in Model.CarGroups)
     {
-        <li>
-            @Html.ActionLink($"{group.Brand} {group.Model} for {group.DayPrice} a day!", MVC.Rentals.RentDetails(Model.PickupDate, Model.ReturnDate, group.Id))
-        </li>
+        <tr style="border-bottom: 2px solid #ddd">
+            <th>
+                <img src="https://cdn2.rcstatic.com/images/car_images/web/hyundai/i10_lrg.jpg"/>
+            </th>
+            <th>
+                <div style="width: 300px">
+                    <h2 style="color: #325d88; font-weight: 400;">@($"{group.Brand} {group.Model}")</h2>
+                    <h3>Car details</h3>
+                </div>
+            </th>
+            <th style="text-align: center;">
+                <h2 style="font-weight: 500;">$ @(group.DayPrice * Model.RentalPeriodInDays)</h2>
+                <h5 style="font-weight: 200;">$ @(group.DayPrice) a day</h5>
+                @Html.ActionLink("Rent", MVC.Rentals.RentDetails(Model.PickupDate, Model.ReturnDate, group.Id),
+                    htmlAttributes: new { @class="btn btn-success", style="width: 100px" })
+            </th>
+        </tr>
     }
-</ul>
+</table>
