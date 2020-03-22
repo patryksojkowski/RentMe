@@ -4,10 +4,30 @@
     ViewBag.Title = "RentDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
+<br />
 
-    <h2>@Model.CarGroupId</h2>
-    <h2>@Model.PickupDate</h2>
-    <h2>@Model.ReturnDate</h2>
-
-    @Html.ActionLink("Proceed", MVC.Rentals.ClientDetails(Model.PickupDate, Model.ReturnDate, Model.CarGroupId), new { @class = "btn btn-primary"})
-
+@{
+    var group = Model.CarGroup;
+}
+<table>
+    <tr>
+    <th>
+        <img src="@group.CarGroupDetails.PhotoUrl" />
+    </th>
+    <th>
+        <div style="width: 300px">
+            <h2 style="color: #325d88; font-weight: 400;">@($"{group.Brand} {group.Model}")</h2>
+            <h4>Doors: @group.CarGroupDetails.NumberOfDoors Seats: @group.CarGroupDetails.NumberOfSeats</h4>
+            <h4>Bags: @group.CarGroupDetails.NumberOfLargeBags Transmission: @group.CarGroupDetails.Transmission</h4>
+            <h4>AC: @(group.CarGroupDetails.IsAC ? "Yes" : "No")</h4>
+        </div>
+    </th>
+    <th style="text-align: center;">
+        <h2 style="font-weight: 500;">$ @(Model.Price)</h2>
+        <h5 style="font-weight: 200;">$ @(group.DayPrice) a day</h5>
+        @Html.ActionLink("Proceed", MVC.Rentals.ClientDetails(Model.PickupDate, Model.ReturnDate, group.Id),
+            htmlAttributes: new { @class = "btn btn-success", style = "width: 100px" })
+    </th>
+</tr>
+</table>

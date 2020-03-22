@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using RentMe.Models;
 using RentMe.ViewModels;
+using RentMe.Helpers;
 
 namespace RentMe.Controllers
 {
@@ -40,13 +41,15 @@ namespace RentMe.Controllers
                 }
             }
 
-            var resultCarGroups = new List<CarGroup>();
+            var resultCarGroupsIds = new List<int>();
 
             foreach(var car in cars)
             {
-                resultCarGroups.Add(car.CarGroup);
+                resultCarGroupsIds.Add(car.CarGroupId);
             }
-            resultCarGroups = resultCarGroups.Distinct().ToList();
+            resultCarGroupsIds = resultCarGroupsIds.Distinct().ToList();
+
+            var resultCarGroups = context.CarGroups.Include(c => c.CarGroupDetails).Where(x => resultCarGroupsIds.Contains(x.Id));
 
             var searchResultsModel = new SearchResultsViewModel(resultCarGroups, pickupDate, returnDate);
 
@@ -55,11 +58,14 @@ namespace RentMe.Controllers
 
         public virtual ActionResult RentDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
         {
+            var carGroup = context.CarGroups.Include(c => c.CarGroupDetails).First(c => c.Id == carGroupId);
+
             var viewModel = new RentDetailsViewModel()
             {
                 PickupDate = pickupDate,
                 ReturnDate = returnDate,
-                CarGroupId = carGroupId,
+                CarGroup = carGroup,
+                Price = PriceHelper.Calculate(pickupDate, returnDate, carGroup.DayPrice),
             };
             return View(MVC.Rentals.Views.RentDetails, viewModel);
         }
@@ -67,6 +73,7 @@ namespace RentMe.Controllers
         public virtual ActionResult ClientDetails(DateTime pickupDate, DateTime returnDate, int carGroupId)
         {
             var client = new Client();
+            var carGroup = context.CarGroups.Include(c => c.CarGroupDetails).First(c => c.Id == carGroupId);
 
             var viewModel = new RentClientDetailsViewModel()
             {
@@ -75,7 +82,9 @@ namespace RentMe.Controllers
                 {
                     PickupDate = pickupDate,
                     ReturnDate = returnDate,
-                    CarGroupId = carGroupId
+                    CarGroupId = carGroupId,
+                    CarGroup = carGroup,
+                    Price = PriceHelper.Calculate(pickupDate, returnDate, carGroup.DayPrice),
                 },
             };
             return View(MVC.Rentals.Views.ClientDetails, viewModel);

@@ -10,12 +10,14 @@
     {
         <tr style="border-bottom: 2px solid #ddd">
             <th>
-                <img src="https://cdn2.rcstatic.com/images/car_images/web/hyundai/i10_lrg.jpg"/>
+                <img src="@group.CarGroupDetails.PhotoUrl"/>
             </th>
             <th>
                 <div style="width: 300px">
                     <h2 style="color: #325d88; font-weight: 400;">@($"{group.Brand} {group.Model}")</h2>
-                    <h3>Car details</h3>
+                    <h4>Doors: @group.CarGroupDetails.NumberOfDoors Seats: @group.CarGroupDetails.NumberOfSeats</h4>
+                    <h4>Bags: @group.CarGroupDetails.NumberOfLargeBags Transmission: @group.CarGroupDetails.Transmission</h4>
+                    <h4>AC: @(group.CarGroupDetails.IsAC ? "Yes" : "No")</h4>
                 </div>
             </th>
             <th style="text-align: center;">
