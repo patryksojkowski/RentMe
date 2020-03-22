@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +21,7 @@ namespace RentMe.Controllers
         // GET: Cars
         public virtual ActionResult Index()
         {
-            var groups = context.CarGroups.AsEnumerable();
+            var groups = context.CarGroups.Include(c => c.CarGroupDetails).AsEnumerable();
 
             return View(groups);
         }
