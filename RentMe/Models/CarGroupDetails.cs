@@ -25,5 +25,8 @@ namespace RentMe.Models
 
         [Required]
         public string Transmission { get; set; }
+
+        [Required]
+        public string PhotoUrl { get; set; }
     }
 }
