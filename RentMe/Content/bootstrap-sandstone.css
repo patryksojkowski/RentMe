@@ -5186,9 +5186,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
     float: left;
     height: 60px;
+    width: 240px;
     padding: 20px 15px;
     font-size: 18px;
     line-height: 20px;
+    background: url(../Content/images/logo240x60.png);
+    text-indent: -9999px;
 }
 
     .navbar-brand:hover,

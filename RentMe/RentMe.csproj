@@ -255,6 +255,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo200x50.png" />
+    <Content Include="Content\images\logo240x60.png" />
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
