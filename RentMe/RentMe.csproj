@@ -212,10 +212,15 @@
     <Compile Include="Migrations\202003171754048_AddClientToRental.Designer.cs">
       <DependentUpon>202003171754048_AddClientToRental.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003221041514_AddCarGroupDetails.cs" />
+    <Compile Include="Migrations\202003221041514_AddCarGroupDetails.Designer.cs">
+      <DependentUpon>202003221041514_AddCarGroupDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarGroup.cs" />
+    <Compile Include="Models\CarGroupDetails.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rental.cs" />
@@ -388,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003171754048_AddClientToRental.resx">
       <DependentUpon>202003171754048_AddClientToRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003221041514_AddCarGroupDetails.resx">
+      <DependentUpon>202003221041514_AddCarGroupDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

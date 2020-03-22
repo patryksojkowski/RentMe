@@ -19,5 +19,11 @@ namespace RentMe.Models
 
         [Required]
         public float DayPrice { get; set; }
+
+        [Required]
+        public CarGroupDetails CarGroupDetails { get; set; }
+
+        [Required]
+        public int CarGroupDetailsId { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace RentMe.Models
         public DbSet<Car> Cars { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<CarGroupDetails> CarGroupDetails { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
