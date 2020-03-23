@@ -124,7 +124,11 @@ namespace RentMe.Controllers
             context.Rentals.Add(newRental);
             context.SaveChanges();
 
-            return View(MVC.Rentals.Views.Successful);
+            // Call function to send confirmation email to email address.
+            // Commented out
+            // MailHelper.SendConfirmationMail(client);
+
+            return View(MVC.Rentals.Views.Successful, client);
         }
     }
 }

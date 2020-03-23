@@ -1,8 +1,11 @@
-﻿
+﻿@model RentMe.Models.Client
 @{
     ViewBag.Title = "Successful";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<br />
 
-<h2>Successful</h2>
+<h1>Your reservation is successful.</h1>
+<h2>Thank you for your trust</h2>
+<h4>Confirmation mail was sent to @Model.Email</h4>
 
